@@ -1,5 +1,5 @@
-# battleship-game
-Battleship game
+# Battleship game
+
 This project showcases an implementation of the classic game 'Battleship'. The game is built using the Test Driven Development (TDD) approach, which emphasizes incremental development and testing.
 
 If you are unfamiliar with Battleship, it is a strategic board game where players place ships on a grid and take turns guessing the locations of their opponent's ships. You can find a description of the game here and even play an online version here.
