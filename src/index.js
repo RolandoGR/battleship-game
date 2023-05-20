@@ -1,7 +1,27 @@
-// Add your JavaScript code here
-console.log("Hello, world!");
+function ship(length) {
+  let hits = 0;
+  const newHit = () => {
+    hits++;
+    shipObj.hits = hits;
+    shipObj.isSunk = length === hits;
+    return { hits, isSunk };
+  };
 
-function ship(a, b) {
-  return a + b;
+  let isSunk = length === hits;
+
+  const shipObj = {
+    length,
+    hits,
+    newHit,
+    isSunk,
+  };
+
+  return shipObj;
 }
-module.exports = { ship };
+
+const myShip = ship(5);
+console.log(myShip);
+
+module.exports = {
+  ship: ship,
+};
