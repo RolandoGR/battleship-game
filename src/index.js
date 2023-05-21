@@ -1,4 +1,4 @@
-function ship(length) {
+function shipFactory(length) {
   let hits = 0;
   const newHit = () => {
     hits++;
@@ -19,9 +19,6 @@ function ship(length) {
   return shipObj;
 }
 
-const myShip = ship(5);
-console.log(myShip);
-
 module.exports = {
-  ship: ship,
+  shipFactory: shipFactory,
 };

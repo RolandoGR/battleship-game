@@ -1,10 +1,10 @@
-const { ship } = require("./src/index");
-const gameboard = require("./src/gameboard");
+const { shipFactory } = require("../src/index");
+const gameboardFactory = require("../src/gameboard");
 
 describe("ship", () => {
   test("should return an object with the correct properties", () => {
     const length = 3;
-    const myShip = ship(length);
+    const myShip = shipFactory(length);
 
     expect(myShip).toEqual(
       expect.objectContaining({
@@ -18,7 +18,7 @@ describe("ship", () => {
 
   test("should increment the hits count when calling newHit", () => {
     const length = 3;
-    const myShip = ship(length);
+    const myShip = shipFactory(length);
 
     myShip.newHit();
     expect(myShip.hits).toBe(1);
@@ -32,7 +32,7 @@ describe("ship", () => {
 
   test("should correctly determine if the ship is sunk", () => {
     const length = 3;
-    const myShip = ship(length);
+    const myShip = shipFactory(length);
 
     expect(myShip.isSunk).toBe(false);
 
@@ -44,4 +44,12 @@ describe("ship", () => {
   });
 });
 
-describe("gameboard", () => {});
+describe("gameboard", () => {
+  const myGameboard = gameboardFactory();
+  test("gameboardOBj has 'board' function", () => {
+    expect(myGameboard).toHaveProperty("board");
+  });
+  test("shipArrange exists", () => {
+    expect(myGameboard.shipArrange()).toStrictEqual([0, 0]);
+  });
+});
